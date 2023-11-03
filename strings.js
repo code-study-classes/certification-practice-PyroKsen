@@ -42,45 +42,45 @@ export const containsSubstring = (s, so) => s.includes(so);
 export const replaceSubstring = (str1, str2, str3) => str1.replace(str2, str3);
 
 export const countWordsWithSameLetters = (str) => {
-  let i = 0;
-  let index = 0;
-  let result = 0;
-  let slovo = '';
-  const dlina = str.length;
-  while (i < dlina) {
-    if ((str[index - 1] === ' ' && str[index + 1] === ' ')(str[index + 1] === undefined && str[index - 1] === ' ')) {
-      slovo += str[index];
-      slovo += str[index];
-      i += 1;
-      index += 1;
-    } else if ((str[index - 1] === ' ' || str[index - 1] === undefined)) {
-      slovo += str[index];
-      i += 1;
-      index += 1;
-    } else if (str[index + 1] === ' ' || str[index + 1] === undefined) {
-      slovo += str[index];
-      i += 1;
-      index += 1;
-    } else {
-      i += 1;
-      index += 1;
+    let i = 0;
+    let index = 0;
+    let result = 0;
+    let slovo = '';
+    const dlina = str.length;
+    while (i < dlina) {
+      if ((str[index - 1] === ' ' && str[index + 1] === ' ') || (str[index - 1] === undefined && str[index + 1] === ' ') || (str[index + 1] === undefined && str[index - 1] === ' ')) {
+        slovo += str[index];
+        slovo += str[index];
+        i += 1;
+        index += 1;
+      } else if ((str[index - 1] === ' ' || str[index - 1] === undefined)) {
+        slovo += str[index];
+        i += 1;
+        index += 1;
+      } else if (str[index + 1] === ' ' || str[index + 1] === undefined) {
+        slovo += str[index];
+        i += 1;
+        index += 1;
+      } else {
+        i += 1;
+        index += 1;
+      }
     }
-  }
-  i = 0;
-  index = 0;
-  const dlinasr = slovo.length;
-  const rrr = slovo.toUpperCase();
-  while (i < dlinasr) {
-    if (i % 2 === 0 && rrr[index] === rrr[index + 1]) {
-      result += 1;
-      i += 1;
-      index += 1;
-    } else {
-      i += 1;
-      index += 1;
-    }
-  } return result;
-};
+    i = 0;
+    index = 0;
+    const dlinasr = slovo.length;
+    const rrr = slovo.toUpperCase();
+    while (i < dlinasr) {
+      if (i % 2 === 0 && rrr[index] === rrr[index + 1]) {
+        result += 1;
+        i += 1;
+        index += 1;
+      } else {
+        i += 1;
+        index += 1;
+      }
+    } return result;
+  };
 
 export const countWordsWithA = (strr) => {
   const str = `${strr} `;
