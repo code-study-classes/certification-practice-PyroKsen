@@ -24,10 +24,41 @@ export const swapHundredsAndTens = (str) => {
   return s;
 };
 
-export const getHundredsDigit = () => null;
+export const getHundredsDigit = (str) => {
+  const d = String(str);
+  const dlina = d.length;
+  const r3 = String(d[dlina - 3]);
+  return Number(r3);
+};
 
-export const getFullHours = () => null;
+export const getFullHours = (a) => {
+  if (a === 0) {
+    return 0;
+  } if (a >= 3600) {
+    return Math.floor(a / 3600);
+  }
+};
 
-export const getDayOfWeek = () => null;
+export const getDayOfWeek = (dayOfYear) => {
+  if (dayOfYear <= 7) {
+    return dayOfYear;
+  }
+  if (dayOfYear === 365) {
+    return 1;
+  }
+  return dayOfYear % 7;
+};
 
-export const countSquares = () => null;
+export const countSquares = (a, b, c) => {
+  const d = a - (a % c);
+  const v = b - (b % c);
+  if (a % c === 0 && b % c === 0) {
+    return ((a * b) / (c * c));
+  } if (a % c !== 0 && b % c === 0) {
+    return ((d * b) / (c * c));
+  } if ((a % c === 0 && b % c !== 0)) {
+    return ((a * v) / (c * c));
+  } if (a % c !== 0 && b % c !== 0) {
+    return ((d * v) / (c * c));
+  }
+};
